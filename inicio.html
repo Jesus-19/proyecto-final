@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tablero Kanban</title>
+</head>
+<body>
+    <header>TABLERO KANBAN</header>
+        <div class="container">
+            <div id="primer-div" class="bloque-tarea"><h2>INICIO TAREA</h2>
+                
+                <button class="my-button" id="mostrar-formulario">Nueva tarea</button>
+                <form id="formulario" class="formulario-tarea">
+                
+                <label for="nombre"> Actividad:</label><br> 
+                <input type="text" id="nombre" class="input-actividad"><br>
+                <label for="fecha"> Fecha:</label><br> 
+                <input type="date" id="fecha-tarea" class="input-fecha"><br>
+                <label for="hora"> Hora:</label><br> 
+                <input type="time" id="hora-tarea" class="input-hora"><br>
+                <label for="responsable"> Responsable:</label><br> 
+                <input type="text" id="responsable-tarea" class="input-responsable"><br>
+                <button type="submit" id="button-crear" >Añadir Tarea</button>
+                <p id="error-mensaje" class="error-formulario" >Por favor, rellene todos los campos</p>
+            </form>
+        </div>
+        
+        
+            <div id="segundo-div" class="bloque-tarea"><h2>TAREA EN PROCESO</h2>
+                <ul id="lista-tareas"></ul>	
+            </div>
+
+            <div id="tercer-div" class="bloque-tarea"><h2>TAREA FINALIZADA</h2>
+                <ul id="fin-tareas"></ul>
+           </div>
+        </div>
+       
+
+        <script src="script.js"></script>
+</body>
+</html>
+ 
