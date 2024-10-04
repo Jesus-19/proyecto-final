@@ -71,12 +71,16 @@ header{
 
 
 .formulario-tarea{
+    background-color: #444444;  /* Color de fondo */
+    border: 2px solid white;
     display: none;
+    border-radius: 10px;  
     align-items: center;
     font-size: 1.5rem;
-    color: black;
+    color: white;
     padding: 5px 5px;
     margin-top: 10px;
+
 }
 
 .error-formulario{
@@ -110,12 +114,6 @@ header{
     background-color: green;
 }
 
-
-#tercer-div ul{
-    background-color: rgb(0, 61, 0);
-    border-radius: 10px;
-    
-  }
 
 .eliminar-tarea {
     background-color: #ff4d4d; /* Color de fondo (rojo claro) */
@@ -155,4 +153,25 @@ header{
 .finalizar-tarea:active {
     background-color: #388e3c; /* Color al hacer clic */
     transform: scale(0.98); /* Efecto de reducción al hacer clic */
+}
+#lista-tareas, #fin-tareas {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box; /* Asegura que padding y borde se incluyan en el ancho total */
+}
+
+.tarea-contenedor {
+    align-items: center;
+    border: 1px solid #ccc; /* Un borde para el marco */
+    padding: 10px;           /* Espacio interior (dentro del marco) */
+    margin-bottom: 10px;      /* Espacio entre las tareas */
+    border-radius: 5px;       /* Bordes redondeados (opcional) */
+    background-color: #a8582d; /* Color de fondo ligero */
+}
+.tarea-finalizada {
+    background-color: rgb(0, 61, 0); /* Fondo verde claro para indicar que está completada */
+}
+.tarea-contenedor p {
+    margin: 5px 0;            /* Espaciado entre párrafos dentro de la tarea */
 }
