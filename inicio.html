@@ -7,7 +7,11 @@
     <title>Tablero Kanban</title>
 </head>
 <body>
-    <header>TABLERO KANBAN</header>
+    <header>TABLERO KANBAN
+         <div id="usuario-login" class="usuario-login">
+            <!-- Aquí se mostrará el nombre del usuario -->
+        </div>
+    </header>
         <div class="container">
             <div id="primer-div" class="bloque-tarea"><h2>INICIO TAREA</h2>
                 
@@ -16,11 +20,11 @@
                 
                 <label for="nombre"> Actividad:</label><br> 
                 <input type="text" id="nombre" class="input-actividad"><br>
-                <label for="fecha"> Fecha:</label><br> 
+                <label for="fecha-tarea"> Fecha:</label><br> 
                 <input type="date" id="fecha-tarea" class="input-fecha"><br>
-                <label for="hora"> Hora:</label><br> 
+                <label for="hora-tarea"> Hora:</label><br> 
                 <input type="time" id="hora-tarea" class="input-hora"><br>
-                <label for="responsable"> Responsable:</label><br> 
+                <label for="responsable-tarea"> Responsable:</label><br> 
                 <input type="text" id="responsable-tarea" class="input-responsable"><br>
                 <button type="submit" id="button-crear" >Añadir Tarea</button>
                 <p id="error-mensaje" class="error-formulario" >Por favor, rellene todos los campos</p>

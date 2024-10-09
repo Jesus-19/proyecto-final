@@ -175,3 +175,13 @@ header{
 .tarea-contenedor p {
     margin: 5px 0;            /* Espaciado entre párrafos dentro de la tarea */
 }
+.usuario-login {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+}
