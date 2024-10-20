@@ -1,187 +1,338 @@
-
-html, body {
-    height: 100%; /* Asegura que tanto el html como el body cubran toda la altura de la ventana */
-    margin: 0; /* Elimina los márgenes por defecto */
-    padding: 0; /* Elimina el relleno por defecto */
-  }
-  
-body{
-    background: linear-gradient(to bottom,rgb(53, 112, 138), rgb(40, 38, 183));
-    color: white;
-    background-repeat: no-repeat ;
-    background-size: cover;
-    min-height: 100vh;
-
-}
-header{
-    background: linear-gradient(to bottom,black, grey);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    font-size: 35px;
-    text-align: center;
-}
-
-.alta-usuario{
-    padding: 20px; /* Espaciado interno */
-    background: linear-gradient(to left, green, rgb(3, 3, 3));
-    padding-top: 10px;
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(252, 252, 252, 0.1); /* Sombra para darle profundidad */
-    flex-direction: column; /* Organiza en columna */
-    width: 100%;
-    max-width: 200px; /* Limita el ancho del formulario */
-}
-.registro{
-    display: flex;
-    flex-direction: column; /* Coloca los elementos en una columna (verticalmente) */
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-}
-.container{
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 20px;
-    margin-bottom: 2rem;
-    text-align: center;
-    
-}
-.bloque-tarea {
-    width: 20%;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  #primer-div {
-    background-color: rgb(173, 173, 173) /* Rojo claro */
-  }
-  
-  #segundo-div {
-    background-color:rgb(232, 144, 107); /* Azul claro */
-  }
-  
-  #tercer-div {
-    background-color:green; /* Verde claro */
-  }
-
-
-.formulario-tarea{
-    background-color: #444444;  /* Color de fondo */
-    border: 2px solid white;
-    display: none;
-    border-radius: 10px;  
-    align-items: center;
-    font-size: 1.5rem;
-    color: white;
-    padding: 5px 5px;
-    margin-top: 10px;
-
-}
-
-.error-formulario{
-    color: red;
-    margin-top: 10px;
-}
-
-
-#button-crear{
-    background-color: green;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-#error-mensaje{
-    display: none;
-}
-
-
-.my-button{
-    background-color: rgb(60, 3, 80);
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.my-button:hover{
-    background-color: green;
-}
-
-
-.eliminar-tarea {
-    background-color: #ff4d4d; /* Color de fondo (rojo claro) */
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    padding: 10px 15px; /* Espaciado interno */
-    border-radius: 5px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño de la fuente */
-    cursor: pointer; /* Cambia el cursor a pointer */
-    transition: background-color 0.3s ease; /* Animación suave para el cambio de color */
-}
-
-.eliminar-tarea:hover {
-    background-color: #e60000; /* Color de fondo al pasar el ratón */
-}
-
-.eliminar-tarea:active {
-    background-color: #cc0000; /* Color cuando se presiona el botón */
-    transform: scale(0.98); /* Efecto de reducción al hacer clic */
-}
-
-.finalizar-tarea {
-    background-color: #4CAF50; /* Color verde */
-    color: white; /* Texto blanco */
-    border: none; /* Sin borde */
-    padding: 10px 15px; /* Espaciado interno */
-    border-radius: 5px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño de la fuente */
-    cursor: pointer; /* Cambia el cursor a pointer */
-    transition: background-color 0.3s ease, transform 0.1s ease; /* Transición suave */
-}
-
-.finalizar-tarea:hover {
-    background-color: #45a049; /* Color de fondo al pasar el ratón (verde más oscuro) */
-}
-
-.finalizar-tarea:active {
-    background-color: #388e3c; /* Color al hacer clic */
-    transform: scale(0.98); /* Efecto de reducción al hacer clic */
-}
-#lista-tareas, #fin-tareas {
+html,
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    width: 100%;
-    box-sizing: border-box; /* Asegura que padding y borde se incluyan en el ancho total */
 }
 
-.tarea-contenedor {
+body {
+    min-width: 320px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+.fondoLogin {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    object-position: 100% 0%;
+    
+}
+
+.alta-usuario {
+    position: absolute;
+    width: 400px;
+    height: 380px;
+    padding: 30px 40px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 6px -3px #000000dc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    text-align: center;
+    background-color: #b4b4b45d;
+}
+
+.tituloLogin{
+    color: white;
+    font-size: 33px;
+    letter-spacing: 1px;
+}
+
+input{
+    padding: 4px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #5a5a5a;
+}
+input:focus{
+    outline: none;
+    background-color: transparent;
+}
+
+
+
+.titulo-tablero{
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    font-size: 2.5em;
+    background-color: rgb(0 0 0 / 28%);
+    padding: 10px;
+    border-radius: 8px;
+    
+}
+
+.registro {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100vh;
     align-items: center;
-    border: 1px solid #ccc; /* Un borde para el marco */
-    padding: 10px;           /* Espacio interior (dentro del marco) */
-    margin-bottom: 10px;      /* Espacio entre las tareas */
-    border-radius: 5px;       /* Bordes redondeados (opcional) */
-    background-color: #a8582d; /* Color de fondo ligero */
-}
-.tarea-finalizada {
-    background-color: rgb(0, 61, 0); /* Fondo verde claro para indicar que está completada */
-}
-.tarea-contenedor p {
-    margin: 5px 0;            /* Espaciado entre párrafos dentro de la tarea */
+    justify-content: center;
 }
 .usuario-login {
     position: absolute;
     top: 10px;
     right: 10px;
     font-size: 16px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgb(255 255 255 / 28%);
     color: black;
     padding: 10px;
     border-radius: 5px;
+}
+
+.boton-login {
+    background-color: #566b4b;
+    color: white;
+    border: none;
+    padding: 8px ;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+
+
+.fondoApp{
+    position: fixed; /* La imagen permanece fija mientras se hace scroll */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Ocupa todo el ancho de la ventana */
+    height: 100vh; /* Ocupa todo el alto de la ventana */
+    object-fit: cover; /* Ajusta la imagen para cubrir el área sin deformarse */
+    z-index: -1; 
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    margin-bottom: -7rem;
+    justify-content: center;
+    gap: 20px;
+    align-items: baseline;
+
+    
+}
+
+.bloque-tarea {
+    width: 100%;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #44444432;
+    justify-content: space-between;
+}
+
+
+.formulario-tarea {
+    background-color: #44444483;
+    border: 2px solid rgba(255, 255, 255, 0.486);
+    display: none;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 5px;
+    margin-top: 10px;
+}
+
+.error-formulario {
+    color: red;
+    margin-top: 10px;
+    font-size: 13px;
+}
+.input-prioridad{
+    font-size: 16px;
+    background-color: #363636ad;
+    border-radius: 2px;
+    color: white;
+}
+
+#button-crear {
+    background-color: #0080008f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px 15px;
+    font-size: 16px
+}
+#button-crear:hover {
+    background-color:green;
+}
+
+#error-mensaje {
+    display: none;
+}
+
+.my-button {
+    background-color: rgb(60 3 80 / 58%);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.my-button:hover {
+    background-color:rgb(60, 3, 80);
+}
+
+.eliminar-tarea {
+    background-color: #ff4d4d;
+    /* Color de fondo (rojo claro) */
+    color: white;
+    /* Color del texto */
+    border: none;
+    /* Sin borde */
+    padding: 10px 15px;
+    /* Espaciado interno */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    font-size: 16px;
+    /* Tamaño de la fuente */
+    cursor: pointer;
+    /* Cambia el cursor a pointer */
+    transition: background-color 0.3s ease;
+    /* Animación suave para el cambio de color */
+}
+
+.eliminar-tarea:hover {
+    background-color: #e60000;
+    /* Color de fondo al pasar el ratón */
+}
+
+.eliminar-tarea:active {
+    background-color: #cc0000;
+    /* Color cuando se presiona el botón */
+    transform: scale(0.98);
+    /* Efecto de reducción al hacer clic */
+}
+
+.editar-tarea {
+    background-color: #f0bb0e;
+    /* Color verde */
+    color: white;
+    /* Texto blanco */
+    border: none;
+    /* Sin borde */
+    padding: 10px 15px;
+    /* Espaciado interno */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    font-size: 16px;
+    /* Tamaño de la fuente */
+    cursor: pointer;
+    /* Cambia el cursor a pointer */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.editar-tarea:hover {
+    background-color: #f0bb0e;
+    /* Color de fondo al pasar el ratón (verde más oscuro) */
+}
+
+.editar-tarea:active {
+    background-color: #f0bb0e;
+    /* Color al hacer clic */
+    transform: scale(0.98);
+    /* Efecto de reducción al hacer clic */
+}
+
+.finalizar-tarea {
+    background-color: #4caf50;
+    /* Color verde */
+    color: white;
+    /* Texto blanco */
+    border: none;
+    /* Sin borde */
+    padding: 10px 15px;
+    /* Espaciado interno */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    font-size: 16px;
+    /* Tamaño de la fuente */
+    cursor: pointer;
+    /* Cambia el cursor a pointer */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    /* Transición suave */
+}
+
+.finalizar-tarea:hover {
+    background-color: #45a049;
+    /* Color de fondo al pasar el ratón (verde más oscuro) */
+}
+
+.finalizar-tarea:active {
+    background-color: #388e3c;
+    /* Color al hacer clic */
+    transform: scale(0.98);
+    /* Efecto de reducción al hacer clic */
+}
+
+#lista-tareas,
+#fin-tareas {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    /* Asegura que padding y borde se incluyan en el ancho total */
+}
+
+.tarea-contenedor {
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #a8952d96;
+}
+
+.tarea-finalizada {
+    background-color: rgba(11, 55, 25, 0.34);
+    /* Fondo verde claro para indicar que está completada */
+}
+
+.tarea-contenedor p {
+    margin: 5px 0;
+    /* Espaciado entre párrafos dentro de la tarea */
+}
+
+
+.error-envio{
+    color: red;
+    font-size: 14px;
+    height: 8px;
+}
+
+#cerrar-sesion {
+    background-color: #4caf50;
+    /* Fondo verde */
+    color: white;
+    /* Texto en blanco */
+    padding: 10px 32px;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#cerrar-sesion:hover {
+    color: white;
+    background-color: red;
 }

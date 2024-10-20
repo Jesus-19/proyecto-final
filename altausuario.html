@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Alta new users</title>
 </head>
-<body>
-    <div id="registrar" class="registro"><h2>Login usuario:</h2> 
-    <form id="enviarForm" class="alta-usuario">
-        <label for="name">Nombre:</label><br>
-        <input type="text" id="name" name="name"autocomplete="given-name"><br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"autocomplete="email" requiered><br>
-        <label for="contrasena">Contrasena:</label><br>
-        <input type="password" id="contrasena" name="password"autocomplete="new-password" ><br>
-        <input type="submit" value="enviar">
-    </form>
-<div id="error-envio">
 
-</div>
-</div>
+<body>
+    <section id="registrar" class="registro">
+        <img class="fondoLogin" src="./images/fondoLogin.webp" alt="" />
+        <form id="enviarForm" class="alta-usuario">
+            <h1 class="tituloLogin">Login</h1>
+            <!-- <label for="name">Nombre:</label><br /> -->
+            <input type="text" placeholder="Name" id="name" name="name" autocomplete="given-name" />
+            <!-- <label for="email">Email:</label><br /> -->
+            <input type="email" placeholder="Email" id="email" name="email" autocomplete="email" requiered />
+            <!-- <label for="contrasena">Contrasena:</label><br /> -->
+            <input type="password" placeholder="Password" id="contrasena" name="password" autocomplete="new-password" />
+            <input type="submit" class="boton-login" value="Enviar" />
+            <p id="error-envio" class="error-envio"></p>
+        </form>
+    </section>
     <script src="script.js"></script>
 </body>
-</html>
 
+</html>

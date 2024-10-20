@@ -6,12 +6,14 @@
     <link rel="stylesheet" href="style.css">
     <title>Tablero Kanban</title>
 </head>
+
 <body>
-    <header>TABLERO KANBAN
+    <section id="registrar" class="registro">
+        <img class="fondoApp" src="./images/fondoApp.jpg" alt="" />
+    <h1 class="titulo-tablero">TABLERO KANBAN
          <div id="usuario-login" class="usuario-login">
-            <!-- Aquí se mostrará el nombre del usuario -->
         </div>
-    </header>
+    </h1>
         <div class="container">
             <div id="primer-div" class="bloque-tarea"><h2>INICIO TAREA</h2>
                 
@@ -26,10 +28,18 @@
                 <input type="time" id="hora-tarea" class="input-hora"><br>
                 <label for="responsable-tarea"> Responsable:</label><br> 
                 <input type="text" id="responsable-tarea" class="input-responsable"><br>
+                <label for="prioridad-tarea"> Prioridad:</label>
+                <select id="prioridad-tarea" class="input-prioridad">
+                    <option value="baja">Baja</option>
+                    <option value="media">Media</option>
+                    <option value="alta">Alta</option>
+                </select><br>
                 <button type="submit" id="button-crear" >Añadir Tarea</button>
                 <p id="error-mensaje" class="error-formulario" >Por favor, rellene todos los campos</p>
             </form>
         </div>
+        
+        
         
         
             <div id="segundo-div" class="bloque-tarea"><h2>TAREA EN PROCESO</h2>
@@ -41,7 +51,7 @@
            </div>
         </div>
        
-
+    </section>
         <script src="script.js"></script>
 </body>
 </html>
