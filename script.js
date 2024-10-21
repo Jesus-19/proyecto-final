@@ -198,13 +198,9 @@ function editarTarea(tarea) {
 window.onload = function () {
   const usuario = localStorage.getItem("usuario");
   if (usuario) {
-    // Usuario encontrado, mostrar su nombre
-    const usuarioLoginDiv = document.getElementById("usuario-login");
-    usuarioLoginDiv.innerHTML = `
-             <span>Bienvenido, ${usuario}</span>
-             <button id="cerrar-sesion">Cerrar Sesión</button>
-         `;
-
+    // const usuarioLoginDiv = document.getElementById("usuario-login");
+    const usuarioNombre = document.getElementById("usuarioNombre");
+    usuarioNombre.innerHTML = ` ${usuario}`;
     const cerrarSesionBtn = document.getElementById("cerrar-sesion");
     cerrarSesionBtn.addEventListener("click", function () {
       localStorage.removeItem("usuario");

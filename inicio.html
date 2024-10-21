@@ -1,58 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
     <title>Tablero Kanban</title>
 </head>
 
 <body>
-    <section id="registrar" class="registro">
+    <section id="" class="registro">
         <img class="fondoApp" src="./images/fondoApp.jpg" alt="" />
-    <h1 class="titulo-tablero">TABLERO KANBAN
-         <div id="usuario-login" class="usuario-login">
-        </div>
-    </h1>
+        <header>
+            <div class="containerHeader">
+                <div id="usuario-login" class="usuario-login">
+                    <p class="usuarioTitulo">Usuario:</p>
+                    <p id="usuarioNombre" class="usuarioNombre"> </p>
+                </div>
+                <h1 class="titulo-tablero">TABLERO KANBAN</h1>
+                <img id="cerrar-sesion" src="./svg/logout.svg" alt="logout icon">
+            </div>
+        </header>
         <div class="container">
-            <div id="primer-div" class="bloque-tarea"><h2>INICIO TAREA</h2>
-                
+            <div id="primer-div" class="bloque-tarea">
+                <h2 class="tituloTarea">INICIO TAREA</h2>
+
                 <button class="my-button" id="mostrar-formulario">Nueva tarea</button>
                 <form id="formulario" class="formulario-tarea">
-                
-                <label for="nombre"> Actividad:</label><br> 
-                <input type="text" id="nombre" class="input-actividad"><br>
-                <label for="fecha-tarea"> Fecha:</label><br> 
-                <input type="date" id="fecha-tarea" class="input-fecha"><br>
-                <label for="hora-tarea"> Hora:</label><br> 
-                <input type="time" id="hora-tarea" class="input-hora"><br>
-                <label for="responsable-tarea"> Responsable:</label><br> 
-                <input type="text" id="responsable-tarea" class="input-responsable"><br>
-                <label for="prioridad-tarea"> Prioridad:</label>
-                <select id="prioridad-tarea" class="input-prioridad">
-                    <option value="baja">Baja</option>
-                    <option value="media">Media</option>
-                    <option value="alta">Alta</option>
-                </select><br>
-                <button type="submit" id="button-crear" >Añadir Tarea</button>
-                <p id="error-mensaje" class="error-formulario" >Por favor, rellene todos los campos</p>
-            </form>
-        </div>
-        
-        
-        
-        
-            <div id="segundo-div" class="bloque-tarea"><h2>TAREA EN PROCESO</h2>
-                <ul id="lista-tareas"></ul>	
+                    <label for="nombre"> Actividad:</label><br />
+                    <input type="text" id="nombre" class="input-actividad" /><br />
+                    <label for="fecha-tarea"> Fecha:</label><br />
+                    <input type="date" id="fecha-tarea" class="input-fecha" /><br />
+                    <label for="hora-tarea"> Hora:</label><br />
+                    <input type="time" id="hora-tarea" class="input-hora" /><br />
+                    <label for="responsable-tarea"> Responsable:</label><br />
+                    <input type="text" id="responsable-tarea" class="input-responsable" /><br />
+                    <label for="prioridad-tarea"> Prioridad:</label>
+                    <select id="prioridad-tarea" class="input-prioridad">
+                        <option value="baja">Baja</option>
+                        <option value="media">Media</option>
+                        <option value="alta">Alta</option>
+                    </select><br />
+                    <button type="submit" id="button-crear">Añadir Tarea</button>
+                    <p id="error-mensaje" class="error-formulario">
+                        Por favor, rellene todos los campos
+                    </p>
+                </form>
             </div>
 
-            <div id="tercer-div" class="bloque-tarea"><h2>TAREA FINALIZADA</h2>
+            <div id="segundo-div" class="bloque-tarea">
+                <h2 class="tituloTarea">TAREA EN PROCESO</h2>
+                <ul id="lista-tareas"></ul>
+            </div>
+
+            <div id="tercer-div" class="bloque-tarea">
+                <h2 class="tituloTarea">TAREA FINALIZADA</h2>
                 <ul id="fin-tareas"></ul>
-           </div>
+            </div>
         </div>
-       
     </section>
-        <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
- 

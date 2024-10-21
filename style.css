@@ -1,338 +1,352 @@
 html,
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    min-width: 320px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  min-width: 320px;
+  font-family: "Poppins", sans-serif;
 }
 
+/* Estilos altausuatio.html*/
 
+header {
+  width: 100%;
+  padding: 0 20px;
+}
+.containerHeader {
+  background-color: #44444432;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  padding: 0 20px;
+}
+
+.login {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .fondoLogin {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    object-fit: cover;
-    object-position: 100% 0%;
-    
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .alta-usuario {
-    position: absolute;
-    width: 400px;
-    height: 380px;
-    padding: 30px 40px;
-    border-radius: 6px;
-    box-shadow: 0px 0px 6px -3px #000000dc;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
-    text-align: center;
-    background-color: #b4b4b45d;
+  position: absolute;
+  width: 440px;
+  height: 420px;
+  padding: 30px 40px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 14px -2px #566b4b;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  text-align: center;
+  backdrop-filter: blur(22px);
+  color: rgb(255, 255, 255);
+  background-color: #92929225;
 }
 
-.tituloLogin{
-    color: white;
-    font-size: 33px;
-    letter-spacing: 1px;
+.tituloLogin {
+  color: white;
+  font-size: 33px;
+  letter-spacing: 1.5px;
+  filter: drop-shadow(0px 0px 4px #333f2c);
 }
 
-input{
-    padding: 4px;
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid #5a5a5a;
+input {
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #566b4b;
 }
-input:focus{
-    outline: none;
-    background-color: transparent;
+input:focus {
+  outline: none;
+  background-color: transparent;
+  color: #566b4b;
 }
 
-
-
-.titulo-tablero{
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    text-align: center;
-    font-size: 2.5em;
-    background-color: rgb(0 0 0 / 28%);
-    padding: 10px;
-    border-radius: 8px;
-    
+.titulo-tablero {
+  font-size: 2.5em;
 }
 
 .registro {
-    position: relative;
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding-top: 20px;
 }
+
 .usuario-login {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 16px;
-    background-color: rgb(255 255 255 / 28%);
-    color: black;
-    padding: 10px;
-    border-radius: 5px;
+  color: black;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+.usuarioTitulo {
+  font-weight: 600;
+  margin-right: 10px;
+}
+.usuarioNombre {
+  color: #566b4b;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.03rem;
 }
 
 .boton-login {
-    background-color: #566b4b;
-    color: white;
-    border: none;
-    padding: 8px ;
-    border-radius: 5px;
-    cursor: pointer;
-    letter-spacing: 1px;
+  background-color: #566b4b;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  letter-spacing: 1px;
 }
 
-
-
-.fondoApp{
-    position: fixed; /* La imagen permanece fija mientras se hace scroll */
-    top: 0;
-    left: 0;
-    width: 100vw; /* Ocupa todo el ancho de la ventana */
-    height: 100vh; /* Ocupa todo el alto de la ventana */
-    object-fit: cover; /* Ajusta la imagen para cubrir el área sin deformarse */
-    z-index: -1; 
+.fondoApp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .container {
-    width: 100%;
-    display: flex;
-    padding: 20px;
-    margin-bottom: -7rem;
-    justify-content: center;
-    gap: 20px;
-    align-items: baseline;
-
-    
+  width: 100%;
+  height: 88%;
+  display: flex;
+  padding: 20px;
+  gap: 20px;
 }
 
 .bloque-tarea {
-    width: 100%;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    background-color: #44444432;
-    justify-content: space-between;
+  width: 100%;
+  border-radius: 5px;
+  padding: 0 20px 20px 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #dbdbdbe3;
+  justify-content: space-between;
+  overflow: auto;
+  scrollbar-width: none;
 }
-
-
+.tituloTarea {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 50px;
+  top: 0px;
+  background-color: #dbdbdb;
+}
 .formulario-tarea {
-    background-color: #44444483;
-    border: 2px solid rgba(255, 255, 255, 0.486);
-    display: none;
-    top: 10px;
-    right: 10px;
-    font-size: 18px;
-    border-radius: 5px;
-    color: white;
-    padding: 5px 5px;
-    margin-top: 10px;
+  background-color: #44444483;
+  border: 2px solid rgba(255, 255, 255, 0.486);
+  display: none;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 5px;
+  margin-top: 10px;
 }
 
 .error-formulario {
-    color: red;
-    margin-top: 10px;
-    font-size: 13px;
+  color: red;
+  margin-top: 10px;
+  font-size: 13px;
 }
-.input-prioridad{
-    font-size: 16px;
-    background-color: #363636ad;
-    border-radius: 2px;
-    color: white;
+.input-prioridad {
+  font-size: 16px;
+  background-color: #363636ad;
+  border-radius: 2px;
+  color: white;
 }
 
 #button-crear {
-    background-color: #0080008f;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-    padding: 10px 15px;
-    font-size: 16px
+  background-color: #0080008f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
 }
 #button-crear:hover {
-    background-color:green;
+  background-color: green;
 }
 
 #error-mensaje {
-    display: none;
+  display: none;
 }
 
 .my-button {
-    background-color: rgb(60 3 80 / 58%);
-    color: white;
-    border-radius: 5px;
-    border: none;
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
+  background-color: rgb(60 3 80 / 58%);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .my-button:hover {
-    background-color:rgb(60, 3, 80);
+  background-color: rgb(60, 3, 80);
 }
 
 .eliminar-tarea {
-    background-color: #ff4d4d;
-    /* Color de fondo (rojo claro) */
-    color: white;
-    /* Color del texto */
-    border: none;
-    /* Sin borde */
-    padding: 10px 15px;
-    /* Espaciado interno */
-    border-radius: 5px;
-    /* Bordes redondeados */
-    font-size: 16px;
-    /* Tamaño de la fuente */
-    cursor: pointer;
-    /* Cambia el cursor a pointer */
-    transition: background-color 0.3s ease;
-    /* Animación suave para el cambio de color */
+  background-color: #ff4d4d;
+  /* Color de fondo (rojo claro) */
+  color: white;
+  /* Color del texto */
+  border: none;
+  /* Sin borde */
+  padding: 10px 15px;
+  /* Espaciado interno */
+  border-radius: 5px;
+  /* Bordes redondeados */
+  font-size: 16px;
+  /* Tamaño de la fuente */
+  cursor: pointer;
+  /* Cambia el cursor a pointer */
+  transition: background-color 0.3s ease;
+  /* Animación suave para el cambio de color */
 }
 
 .eliminar-tarea:hover {
-    background-color: #e60000;
-    /* Color de fondo al pasar el ratón */
+  background-color: #e60000;
+  /* Color de fondo al pasar el ratón */
 }
 
 .eliminar-tarea:active {
-    background-color: #cc0000;
-    /* Color cuando se presiona el botón */
-    transform: scale(0.98);
-    /* Efecto de reducción al hacer clic */
+  background-color: #cc0000;
+  /* Color cuando se presiona el botón */
+  transform: scale(0.98);
+  /* Efecto de reducción al hacer clic */
 }
 
 .editar-tarea {
-    background-color: #f0bb0e;
-    /* Color verde */
-    color: white;
-    /* Texto blanco */
-    border: none;
-    /* Sin borde */
-    padding: 10px 15px;
-    /* Espaciado interno */
-    border-radius: 5px;
-    /* Bordes redondeados */
-    font-size: 16px;
-    /* Tamaño de la fuente */
-    cursor: pointer;
-    /* Cambia el cursor a pointer */
-    transition: background-color 0.3s ease, transform 0.1s ease;
+  background-color: #f0bb0e;
+  /* Color verde */
+  color: white;
+  /* Texto blanco */
+  border: none;
+  /* Sin borde */
+  padding: 10px 15px;
+  /* Espaciado interno */
+  border-radius: 5px;
+  /* Bordes redondeados */
+  font-size: 16px;
+  /* Tamaño de la fuente */
+  cursor: pointer;
+  /* Cambia el cursor a pointer */
+  transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 .editar-tarea:hover {
-    background-color: #f0bb0e;
-    /* Color de fondo al pasar el ratón (verde más oscuro) */
+  background-color: #f0bb0e;
+  /* Color de fondo al pasar el ratón (verde más oscuro) */
 }
 
 .editar-tarea:active {
-    background-color: #f0bb0e;
-    /* Color al hacer clic */
-    transform: scale(0.98);
-    /* Efecto de reducción al hacer clic */
+  background-color: #f0bb0e;
+  /* Color al hacer clic */
+  transform: scale(0.98);
+  /* Efecto de reducción al hacer clic */
 }
 
 .finalizar-tarea {
-    background-color: #4caf50;
-    /* Color verde */
-    color: white;
-    /* Texto blanco */
-    border: none;
-    /* Sin borde */
-    padding: 10px 15px;
-    /* Espaciado interno */
-    border-radius: 5px;
-    /* Bordes redondeados */
-    font-size: 16px;
-    /* Tamaño de la fuente */
-    cursor: pointer;
-    /* Cambia el cursor a pointer */
-    transition: background-color 0.3s ease, transform 0.1s ease;
-    /* Transición suave */
+  background-color: #4caf50;
+  /* Color verde */
+  color: white;
+  /* Texto blanco */
+  border: none;
+  /* Sin borde */
+  padding: 10px 15px;
+  /* Espaciado interno */
+  border-radius: 5px;
+  /* Bordes redondeados */
+  font-size: 16px;
+  /* Tamaño de la fuente */
+  cursor: pointer;
+  /* Cambia el cursor a pointer */
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  /* Transición suave */
 }
 
 .finalizar-tarea:hover {
-    background-color: #45a049;
-    /* Color de fondo al pasar el ratón (verde más oscuro) */
+  background-color: #45a049;
+  /* Color de fondo al pasar el ratón (verde más oscuro) */
 }
 
 .finalizar-tarea:active {
-    background-color: #388e3c;
-    /* Color al hacer clic */
-    transform: scale(0.98);
-    /* Efecto de reducción al hacer clic */
+  background-color: #388e3c;
+  /* Color al hacer clic */
+  transform: scale(0.98);
+  /* Efecto de reducción al hacer clic */
 }
 
 #lista-tareas,
 #fin-tareas {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    box-sizing: border-box;
-    /* Asegura que padding y borde se incluyan en el ancho total */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  /* Asegura que padding y borde se incluyan en el ancho total */
 }
 
 .tarea-contenedor {
-    align-items: center;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    background-color: #a8952d96;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #a8952d96;
 }
 
 .tarea-finalizada {
-    background-color: rgba(11, 55, 25, 0.34);
-    /* Fondo verde claro para indicar que está completada */
+  background-color: rgba(11, 55, 25, 0.34);
+  /* Fondo verde claro para indicar que está completada */
 }
 
 .tarea-contenedor p {
-    margin: 5px 0;
-    /* Espaciado entre párrafos dentro de la tarea */
+  margin: 5px 0;
+  /* Espaciado entre párrafos dentro de la tarea */
 }
 
-
-.error-envio{
-    color: red;
-    font-size: 14px;
-    height: 8px;
+.error-envio {
+  color: red;
+  font-size: 14px;
+  height: 8px;
 }
+
+/* Estilos inicio.html*/
 
 #cerrar-sesion {
-    background-color: #4caf50;
-    /* Fondo verde */
-    color: white;
-    /* Texto en blanco */
-    padding: 10px 32px;
-    font-size: 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: color 0.3s ease;
+  cursor: pointer;
+  width: 24px;
 }
 
 #cerrar-sesion:hover {
-    color: white;
-    background-color: red;
+  scale: 1.1;
+  filter: drop-shadow(0px 0px 4px black);
 }
