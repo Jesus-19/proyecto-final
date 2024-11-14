@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Tablero Kanban</title>
+</head>
+<body>
+    <section id="login" class="login">
+        <img class="fondoLogin" src="./images/fondoLogin.webp" alt="" />
+        <form id="enviarForm" class="alta-usuario" style="display: flex;">
+            <h1 class="tituloLogin">Login</h1>
+            <input type="text" placeholder="Name" id="logName"  />
+            <input type="email" placeholder="Email" id="logEmail" requiered />
+            <input type="password" placeholder="Password" id="logContrasena" required  />
+            <input type="submit" class="boton-login" value="Login" />
+            <p id="error-envio" class="error-envio"></p>
+            <p>¿No tienes cuenta? <a  onclick="toggleForm()">Regístrate</a></p>
+        </form>
+        <form id="registrarse" class="alta-usuario" style="display: none;">
+            <h1 class="tituloLogin">Registrarse</h1>
+            <input type="text" placeholder="Name" id="regName"/>
+            <input type="email" placeholder="Email" id="regEmail" requiered />
+            <input type="password" placeholder="Password" id="regContrasena" requiered/>
+            <input type="submit" class="boton-login" value="Registrarse" />
+            <p id="error-envio" class="error-envio"></p>
+            <p>¿Tienes cuenta? <a  onclick="toggleForm()">Ir a login</a></p>
+
+        </form>
+
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

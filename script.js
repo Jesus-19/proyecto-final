@@ -1,3 +1,16 @@
+const apiUrl = "http://localhost:3001"
+
+function toggleForm() {
+  document.getElementById("enviarForm").style.display =
+    document.getElementById("enviarForm").style.display === "none"
+      ? "flex"
+      : "none";
+  document.getElementById("registrarse").style.display =
+    document.getElementById("registrarse").style.display === "none"
+      ? "flex"
+      : "none";
+}
+
 // Verifica si el formulario de usuario existe (Alta new users)
 const formUsuario = document.getElementById("enviarForm");
 if (formUsuario) {
@@ -204,14 +217,14 @@ window.onload = function () {
     const cerrarSesionBtn = document.getElementById("cerrar-sesion");
     cerrarSesionBtn.addEventListener("click", function () {
       localStorage.removeItem("usuario");
-      window.location.href = "altausuario.html"; // Redirigir al formulario de alta
+      // window.location.href = "altausuario.html"; // Redirigir al formulario de alta
     });
   } else {
     // No hay usuario, pero primero verificar si estamos ya en la página de altausuario.html
     const currentPage = window.location.pathname;
     if (!currentPage.includes("altausuario.html")) {
       // Si no estamos en la página de altausuario.html, redirigir allí
-      window.location.href = "altausuario.html";
+      // window.location.href = "altausuario.html";
     }
   }
 };
