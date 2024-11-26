@@ -47,9 +47,9 @@
             <div id="primer-div" class="bloque-tarea">
                 <h2 class="tituloTarea">INICIO TAREA</h2>
 
-                <button class="my-button" id="mostrar-formulario">Nueva tarea</button>
+                <button class="my-button" id="mostrar-formulario" onclick="toggleOpenForm()">Crear tarea</button>
                 <form id="formulario" class="formulario-tarea">
-                    <label for="titulo"> Titul:</label><br />
+                    <label for="titulo"> Titulo:</label><br />
                     <input type="text" id="titulo" class="input-actividad" /><br />
                     <label for="descripcion"> Descripción:</label><br />
                     <input type="text" id="descripcion" class="input-responsable" /><br />
@@ -64,8 +64,14 @@
                         <option value="alta">Alta</option>
                     </select><br />
                     <select id="hijo" class="">
-                        <option value="1">Paula</option>
-                        <option value="2">Claudia</option>
+                        <option value="" disabled selected>Hija</option>
+                        <option value= 1>Paula</option>
+                        <option value= 2>Claudia</option>
+                    </select>
+                    <select id="estado" class="">
+                        <option value="" disabled selected>Estado</option>
+                        <option value="en proceso">en proceso</option>
+                        <option value="finalizada">finalizada</option>
                     </select>
                     <button type="submit" id="button-crear">Añadir Tarea</button>
                     <p id="error-mensaje" class="error-formulario">

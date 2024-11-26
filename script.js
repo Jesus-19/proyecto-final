@@ -128,6 +128,14 @@ function logOut() {
 }
 
 // Crear o editar tarea
+
+function toggleOpenForm() {
+  document.getElementById("formulario").style.display = 
+    document.getElementById("formulario").style.display === "block"
+      ? "none"
+      : "block";
+}
+
 document
   .getElementById("formulario")
   .addEventListener("submit", function (event) {
@@ -136,48 +144,49 @@ document
     const titulo = document.getElementById("titulo").value;
     const descripcion = document.getElementById("descripcion").value;
     const estado = document.getElementById("estado").value;
-
+    const id_hijo = document.getElementById("hijo").value;
     // Verificamos si estamos actualizando una tarea existente
     const isEditing =
       document.getElementById("formulario").dataset.editing;
-    const submitButton = document.getElementById("submit-button");
+    const submitButton = document.getElementById("button-crear");
 
-    if (isEditing) {
-      // Si estamos editando, enviamos la solicitud PUT
-      const taskId = document.getElementById("formulario").dataset.taskId;
-      fetch(`${apiUrl}/tareas/${taskId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ titulo, descripcion, estado }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.message) {
-            loadTasks(); // Recargar las tareas después de actualizar una
-            clearForm();
-            submitButton.textContent = "Crear tarea"; // Restablecer el texto del botón
-          }
-        });
-    } else {
+    // if (isEditing) {
+    //   // Si estamos editando, enviamos la solicitud PUT
+    //   const taskId = document.getElementById("formulario").dataset.taskId;
+    //   fetch(`${apiUrl}/tareas/${taskId}`, {
+    //     method: "PUT",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({ titulo, descripcion, estado }),
+    //   })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       if (data.message) {
+    //         loadTasks(); // Recargar las tareas después de actualizar una
+    //         clearForm();
+    //         submitButton.textContent = "Crear tarea"; // Restablecer el texto del botón
+    //       }
+    //     });
+    // } else {
       // Si estamos creando, enviamos la solicitud POST
       fetch(`${apiUrl}/tareas`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ titulo, descripcion, estado }),
+        body: JSON.stringify({ titulo, descripcion, estado, id_hijo }),
       })
         .then((response) => response.json())
         .then((data) => {
+          console.log(data)
           if (data.message) {
             loadTasks(); // Recargar las tareas después de crear una nueva
             clearForm();
           }
         });
     }
-  });
+);
 
 // Cargar tareas
 function loadTasks() {
@@ -229,31 +238,31 @@ function loadTasks() {
       });
   }
 
-// // // Editar tarea
-//  function editTask(id_tarea, titulo, descripcion, estado) {
-//    // Mostrar formulario de edición con los datos actuales
-//    document.getElementById("task-titulo").value = titulo;
-//    document.getElementById("task-descripcion").value = descripcion;
-//    document.getElementById("task-estado").value = estado;
+// // Editar tarea
+ function editTask(id_tarea, titulo, descripcion, estado) {
+   // Mostrar formulario de edición con los datos actuales
+   document.getElementById("titulo").value = titulo;
+   document.getElementById("descripcion").value = descripcion;
+   document.getElementById("estado").value = estado;
 
-//    // Cambiar el formulario a modo de edición
-//    const form = document.getElementById("create-task-form");
-//    form.dataset.editing = true; // Marcamos que estamos editando
-//    form.dataset.taskId = id; // Guardamos el id de la tarea a editar
+   // Cambiar el formulario a modo de edición
+   const form = document.getElementById("formulario");
+   form.dataset.editing = true; // Marcamos que estamos editando
+   form.dataset.taskId = id_tarea; // Guardamos el id de la tarea a editar
 
-//    // Cambiar el texto del botón de "Crear tarea" a "Editar tarea"
-//    const submitButton = document.getElementById("submit-button");
-//    submitButton.textContent = "Editar tarea"; // Cambiar texto del botón
-//  }
+   // Cambiar el texto del botón de "Crear tarea" a "Editar tarea"
+   const submitButton = document.getElementById("button-crear");
+   submitButton.textContent = "Editar tarea"; // Cambiar texto del botón
+ }
 
-// // Limpiar el formulario y desmarcar el modo de edición
-// function clearForm() {
-//   document.getElementById("task-title").value = "";
-//   document.getElementById("task-description").value = "";
-//   document.getElementById("task-status").value = "";
-//   const form = document.getElementById("create-task-form");
-//   form.removeAttribute("data-editing");
-//   form.removeAttribute("data-taskId");
-//   const submitButton = document.getElementById("submit-button");
-//   submitButton.textContent = "Crear tarea"; // Restablecer texto del botón
-// }
+// Limpiar el formulario y desmarcar el modo de edición
+function clearForm() {
+  document.getElementById("titulo").value = "";
+  document.getElementById("descripcion").value = "";
+  document.getElementById("estado").value = "";
+  const form = document.getElementById("formulario");
+  form.removeAttribute("data-editing");
+  form.removeAttribute("data-taskId");
+  const submitButton = document.getElementById("button-crear");
+  submitButton.textContent = "Crear tarea"; // Restablecer texto del botón
+}
