@@ -64,8 +64,8 @@ document
   .addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const email = document.getElementById("logEmail").value.trim();
-    const password = document.getElementById("logContrasena").value.trim();
+    const email = document.getElementById("logEmail").value;
+    const password = document.getElementById("logContrasena").value;
 
     if (!email || !password) {
       document.getElementById("error-login").innerText =
@@ -130,7 +130,7 @@ function logOut() {
 // Crear o editar tarea
 
 function toggleOpenForm() {
-  document.getElementById("formulario").style.display = 
+  document.getElementById("formulario").style.display =
     document.getElementById("formulario").style.display === "block"
       ? "none"
       : "block";
@@ -143,126 +143,113 @@ document
 
     const titulo = document.getElementById("titulo").value;
     const descripcion = document.getElementById("descripcion").value;
+    const prioridad = document.getElementById("prioridad-tarea").value;
     const estado = document.getElementById("estado").value;
     const id_hijo = document.getElementById("hijo").value;
-    // Verificamos si estamos actualizando una tarea existente
-    const isEditing =
-      document.getElementById("formulario").dataset.editing;
-    const submitButton = document.getElementById("button-crear");
 
-    // if (isEditing) {
-    //   // Si estamos editando, enviamos la solicitud PUT
-    //   const taskId = document.getElementById("formulario").dataset.taskId;
-    //   fetch(`${apiUrl}/tareas/${taskId}`, {
-    //     method: "PUT",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ titulo, descripcion, estado }),
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       if (data.message) {
-    //         loadTasks(); // Recargar las tareas después de actualizar una
-    //         clearForm();
-    //         submitButton.textContent = "Crear tarea"; // Restablecer el texto del botón
-    //       }
-    //     });
-    // } else {
-      // Si estamos creando, enviamos la solicitud POST
-      fetch(`${apiUrl}/tareas`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ titulo, descripcion, estado, id_hijo }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data)
-          if (data.message) {
-            loadTasks(); // Recargar las tareas después de crear una nueva
-            clearForm();
-          }
-        });
-    }
-);
+    fetch(`${apiUrl}/tareas`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ titulo, descripcion, estado, id_hijo, prioridad }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data.message) {
+          loadTasks();
+          clearForm();
+        }
+      });
+  });
 
 // Cargar tareas
 function loadTasks() {
   fetch(`${apiUrl}/tareas`)
     .then((response) => response.json())
     .then((data) => {
-
-      const arrProceso = data.filter(item => item.estado === "en proceso");
-      const arrFinalizadas = data.filter(item => item.estado === "finalizada");
+      const arrProceso = data.filter((item) => item.estado === "en proceso");
+      const arrFinalizadas = data.filter(
+        (item) => item.estado === "finalizada"
+      );
 
       const tareasProceso = document.getElementById("lista-proceso");
-       tareasProceso.innerHTML = "";
+      tareasProceso.innerHTML = "";
 
-       const tareasFinalizadas = document.getElementById("fin-tareas");
-       tareasFinalizadas.innerHTML = "";
+      const tareasFinalizadas = document.getElementById("fin-tareas");
+      tareasFinalizadas.innerHTML = "";
 
       arrProceso.forEach((task) => {
         const taskItem = document.createElement("li");
+        taskItem.classList.add("task-item");
         taskItem.innerHTML = `
-          <span>${task.titulo} - ${task.estado}</span>
-          <button onclick="deleteTask(${task.id_tarea})">Eliminar</button>
-          <button onclick="editTask(${task.id_tarea}, '${task.titulo}', '${task.descripcion}', '${task.estado}')">Editar</button>
-        `;
+        <div class="task">
+          <div class="task-info">
+          <h3>${task.titulo}</h3>
+          <p>${task.descripcion}</p>
+          <p>${task.id_hijo}</p>
+          <p>${task.prioridad}</p>
+          </div>
+          <div class="container-buttons">
+          <img class="buttons" src="svg/delete.svg" alt="Eliminar" title="Eliminar" onclick="deleteTask(${task.id_tarea})">
+          <img class="buttons" src="svg/edit.svg" alt="Editar" title="Editar" onclick="editTask(${task.id_tarea}, '${task.titulo}', '${task.descripcion}', '${task.estado}')">
+          </div>
+          <img onclick="" src="svg/arrow.svg" class="finalizar-tarea">
+        </div>`;
         tareasProceso.appendChild(taskItem);
       });
+
       arrFinalizadas.forEach((task) => {
         const taskItem = document.createElement("li");
+        taskItem.classList.add("task-item");
         taskItem.innerHTML = `
-          <span>${task.titulo} - ${task.estado}</span>
-          <button onclick="deleteTask(${task.id_tarea})">Eliminar</button>
-          <button onclick="editTask(${task.id_tarea}, '${task.titulo}', '${task.descripcion}', '${task.estado}')">Editar</button>
-        `;
+        <div class="task">
+          <div class="task-info">
+          <h3>${task.titulo}</h3>
+          <p>${task.descripcion}</p>
+          <p>${task.id_hijo}</p>
+          <p>${task.prioridad}</p>
+          </div>
+          <div class="container-buttons">
+          <img class="buttons" src="svg/delete.svg" alt="Eliminar" title="Eliminar" onclick="deleteTask(${task.id_tarea})">
+          <img class="buttons" src="svg/edit.svg" alt="Editar" title="Editar" onclick="editTask(${task.id_tarea}, '${task.titulo}', '${task.descripcion}', '${task.estado}')">
+          </div>
+          <img onclick="" src="svg/arrow.svg" class="recuperar-tarea">
+        </div>`;
         tareasFinalizadas.appendChild(taskItem);
       });
     });
 }
 
- // Eliminar tarea
-  function deleteTask(id) {
-    fetch(`${apiUrl}/tareas/${id}`, {
-      method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.message) {
-        loadTasks(); // Recargar las tareas después de eliminar una
-       
-        }
-      });
-  }
-
 // // Editar tarea
- function editTask(id_tarea, titulo, descripcion, estado) {
-   // Mostrar formulario de edición con los datos actuales
-   document.getElementById("titulo").value = titulo;
-   document.getElementById("descripcion").value = descripcion;
-   document.getElementById("estado").value = estado;
+// function editTask(id_tarea, titulo, descripcion, estado) {
+//   // Mostrar formulario de edición con los datos actuales
+//   document.getElementById("titulo").value = titulo;
+//   document.getElementById("descripcion").value = descripcion;
+//   document.getElementById("estado").value = estado;
+// }
 
-   // Cambiar el formulario a modo de edición
-   const form = document.getElementById("formulario");
-   form.dataset.editing = true; // Marcamos que estamos editando
-   form.dataset.taskId = id_tarea; // Guardamos el id de la tarea a editar
-
-   // Cambiar el texto del botón de "Crear tarea" a "Editar tarea"
-   const submitButton = document.getElementById("button-crear");
-   submitButton.textContent = "Editar tarea"; // Cambiar texto del botón
- }
+// Eliminar tarea
+function deleteTask(id) {
+  fetch(`${apiUrl}/tareas/${id}`, {
+    method: "DELETE",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.message) {
+        loadTasks(); // Recargar las tareas después de eliminar una
+      }
+    });
+}
 
 // Limpiar el formulario y desmarcar el modo de edición
 function clearForm() {
-  document.getElementById("titulo").value = "";
-  document.getElementById("descripcion").value = "";
-  document.getElementById("estado").value = "";
+  const titulo = (document.getElementById("titulo").value = "");
+  const descripcion = (document.getElementById("descripcion").value = "");
+  const prioridad = (document.getElementById("prioridad-tarea").value = "");
+  const estado = (document.getElementById("estado").value = "");
+  const id_hijo = (document.getElementById("hijo").value = "");
   const form = document.getElementById("formulario");
-  form.removeAttribute("data-editing");
-  form.removeAttribute("data-taskId");
-  const submitButton = document.getElementById("button-crear");
-  submitButton.textContent = "Crear tarea"; // Restablecer texto del botón
+  form.style.display = "none";
 }
